@@ -1,0 +1,192 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #610C9F;
+    color: #fff;
+}
+@media  screen and (max-width: 1024px) {
+    body{
+        margin: 0;
+        padding: 0;
+        background: white;
+        color: #610C9F;
+    }
+}
+@font-face{
+    font-family:  'inter';
+    src: url(/static/Inter-Regular.ttf);
+}
+h1{
+    text-align: center;
+    margin: 100px auto 50px;
+    font-weight: 600;
+    font-size: 30px;
+    font-family: inter;
+}
+@media  screen and (max-width: 1024px) {
+    h1{
+        margin: 50px 0;
+        font-weight: 600;
+        font-size: 25px;
+        font-family: inter;
+    }
+}
+form{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    height: 60px;
+    background: #4d236b;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+@media  screen and (max-width: 1024px) {
+    form{
+        width: 100%;
+        max-width: 375px;
+        margin: auto;
+    }
+}
+form img{
+    width: 18px;
+    height: 18px;
+    padding: 0 16px;
+    opacity: 40%;
+}
+@media  screen and (max-width: 1024px) {
+    form img{
+        width: 18px;
+        height: 18px;
+        padding: 0 16px;
+        opacity: 40%;
+    }
+}
+@font-face{
+    font-family:  'inter';
+    src: url(/static/Inter-Regular.ttf);
+}
+form input{
+    flex: 1;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-family: inter;
+    opacity: 80%;
+}
+@media  screen and (max-width: 1024px) {
+    form input{
+        flex: 0.1;
+        height: 100%;
+        outline: none;
+        border: none;
+        background: transparent;
+        color: #fff;
+        font-size: 16px;
+        font-family: inter;
+        opacity: 80%;
+    }
+}
+@font-face{
+    font-family:  'inter';
+    src: url(/static/Inter-Regular.ttf);
+}
+form button{
+    padding: 0 20px;
+    height: 100%;
+    background: #941392;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    font-family: inter;
+}
+@media  screen and (max-width: 1024px) {
+    form button{
+        padding: 0 27px;
+        height: 100%;
+        background: #941392;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        outline: none;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        cursor: pointer;
+        font-family: inter;
+    }
+}
+@font-face{
+    font-family:  'inter';
+    src: url(/static/Inter-Regular.ttf);
+}
+::placeholder{
+    color: #fff;
+    font-size: 16px;
+    font-family:  inter;
+    opacity: 40%;
+}
+@media  screen and (max-width: 1024px) {
+    ::placeholder{
+        color: #fff;
+        font-size: 16px;
+        font-family:  inter;
+        opacity: 40%;
+    }
+}
+#search_result{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+@media  screen and (max-width: 1024px) {
+    #search_result{
+        width: 100%;
+        margin: 10px auto 50px;
+        display: inline-block;
+    }
+}
+#search_result img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+@media  screen and (max-width: 1024px) {
+    #search_result img{
+        width: 100%;
+        padding-top: 40px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}
+@font-face{
+    font-family:  'inter';
+    src: url(/static/Inter-Regular.ttf);
+}
+.Showmorebtn{
+    margin: 10px auto 100px;
+    padding: 10px 12px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    background: #941392;
+    font-family: inter;
+    display: none;
+}
+.Showmorebtn img{
+    width: 18px;
+    margin-left: 3px;
+    vertical-align: middle;
+}

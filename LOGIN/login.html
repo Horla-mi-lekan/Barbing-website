@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+      <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+    <div class="loginform">
+    <form id="MainForm" class="w-25 m-4">
+      <div class="mixed_up">
+        <h1 class="login_page">Login User</h1>
+         <a href="../INDEX/index.html"><img  src="../Images/download (1).png"></a>
+        </div>
+      <div class="form-floating mb-3">
+         <img src="../Images/Email.png">
+          <input type="email" class="form-control" id="emailInp" placeholder="name@example.com">   
+        </div>
+
+        <div class="form-floating mb-3">
+          <img src="../Images/password icon.jpg">
+          <input type="password" class="form-control" id="passwordInp" placeholder="Password">
+        </div>
+        
+        <a href="#"> <p class="paragraph_2">Forget Password</p></a>
+
+        <button type="submit"  class="btn_5">Login</button>
+       <a href="../SIGN UP/signup.html"><button type="button" class="btn_6">Register</button></a>
+     </form>
+
+  </div>
+    <script src="login.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    
+        const firebaseConfig = {
+        apiKey: "AIzaSyA6OZDdXtOeRDwN5ClSkffouzX0mwRFGFE",
+        authDomain: "lekzy-project.firebaseapp.com",
+        projectId: "lekzy-project",
+        storageBucket: "lekzy-project.appspot.com",
+        messagingSenderId: "563754229247",
+        appId: "1:563754229247:web:2d57e915914da0801a1bca",
+        measurementId: "G-PT0ZX5VK7S"
+      };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore();
+        const auth = getAuth(app);
+        
+        let EmailInp = document.getElementById("emailInp");
+        let PasswordInp = document.getElementById("passwordInp");
+        let MainForm = document.getElementById("MainForm");
+
+        let SignInUser = evt => {
+            evt.preventDefault();
+
+            signInWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
+            .then(async (credentials) =>{
+              var ref = doc(db,  "UserAuthList",  credentials.user.uid)
+              const docSnap = await getDoc(ref);
+
+              if(docSnap.exists()){
+                    sessionStorage.setItem("user-info", JSON.stringify({
+                        firstname: docSnap.data().firstname,
+                        lastname: docSnap.data().lastname,
+                    }))
+                    sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));  
+                    window.location.href = "../HOME/home.html";
+                }
+
+            })
+            .catch((error) => {
+                alert(error.message);
+                console.log(error.code);
+                console.log(error.message)
+            })
+        }
+        MainForm.addEventListener("submit", SignInUser);
+      
+
+      </script>
+  </body>
+</html>
